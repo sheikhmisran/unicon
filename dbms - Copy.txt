@@ -1,0 +1,50 @@
+create table salesman(
+s_no integer primary key,
+s_name varchar(20),
+city varchar (20),
+commission integer);
+
+create table customer(
+customer_id integer primary key,
+cust_name varchar(20),
+city varchar(20),
+s_no integer references salesman(s_no));
+
+
+
+
+create table orders(
+or_no integer primary key,
+or_name varchar(20),
+ord_date date,
+s_no integer references salesman(s_no),
+customer_id integer references customer(customer_id ));
+
+insert into salesman values(1,'aaa','mysuru',200);
+insert into salesman values(2,'bbb','banglore',300);
+insert into salesman values(3,'ccc','manglore',400);
+
+insert into  customer values(4,'ddd','rajiv',1);
+insert into  customer values(5,'eee','nagar',2);
+insert into  customer values(6,'fff','ghouse',3);
+
+
+
+insert into orders values(7,'ggg','12-01-2023',1,4);
+insert into orders values(9,'hhh','03-01-2023',2,5);
+insert into orders values(0,'iii','05-01-2023',3,6);
+
+select * from salesman
+select * from customer
+select * from orders
+
+
+  
+
+
+
+
+
+
+
+
